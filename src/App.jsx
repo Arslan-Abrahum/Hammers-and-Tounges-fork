@@ -14,6 +14,10 @@ import AuctionDetails from './pages/AuctionDetails'
 import Dashboard from './pages/Dashboard'
 import BuyerAuctions from './pages/BuyerAuctions'
 import BuyerAuctionDetails from './pages/BuyerAuctionDetails'
+import MyBids from './pages/MyBids'
+import WonItems from './pages/WonItems'
+import Invoices from './pages/Invoices'
+import Wallet from './pages/Wallet'
 import Profile from './pages/Profile'
 import './App.css'
 
@@ -29,6 +33,11 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/buyer/auctions" element={<BuyerAuctions />} />
           <Route path="/buyer/auction/:id" element={<BuyerAuctionDetails />} />
+          <Route path="/my-bids" element={<MyBids />} />
+          <Route path="/won-items" element={<WonItems />} />
+          <Route path="/invoices" element={<Invoices />} />
+          <Route path="/invoice/:invoiceNumber" element={<Invoices />} />
+          <Route path="/wallet" element={<Wallet />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/auction/:id" element={
             <>

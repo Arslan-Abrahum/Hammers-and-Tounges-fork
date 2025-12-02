@@ -123,7 +123,6 @@ Fully restored to concours quality, this Cobra has been meticulously maintained 
               <Link to="/buyer/auctions" className="nav-link">Auctions</Link>
               <Link to="/my-bids" className="nav-link">My Bids</Link>
               <Link to="/won-items" className="nav-link">Won Items</Link>
-              <Link to="/help" className="nav-link">Help</Link>
             </nav>
 
             <div className="buyer-auction-details-header-right">
@@ -149,7 +148,15 @@ Fully restored to concours quality, this Cobra has been meticulously maintained 
         {/* Auction Details Content */}
         <div className="buyer-auction-details-content">
           <div className="buyer-auction-details-container">
-            {/* Breadcrumbs */}
+            {/* Back Button and Breadcrumbs */}
+            <div className="back-button-container">
+              <button className="back-button" onClick={() => navigate('/buyer/auctions')}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Back to Auctions
+              </button>
+            </div>
             <nav className="breadcrumbs">
               <Link to="/dashboard">Home</Link>
               <span>/</span>
@@ -326,7 +333,15 @@ Fully restored to concours quality, this Cobra has been meticulously maintained 
       {/* Auction Details Content */}
       <div className="buyer-auction-details-content">
         <div className="buyer-auction-details-container">
-          {/* Breadcrumbs */}
+          {/* Back Button and Breadcrumbs */}
+          <div className="back-button-container">
+            <button className="back-button" onClick={() => navigate('/buyer/auctions')}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Back to Auctions
+            </button>
+          </div>
           <nav className="breadcrumbs">
             <Link to="/dashboard">Home</Link>
             <span>/</span>

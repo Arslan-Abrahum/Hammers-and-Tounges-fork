@@ -148,6 +148,41 @@
   margin: 0 auto;
 }
 
+.back-button-container {
+  margin-bottom: 1rem;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background-color: rgba(140, 198, 63, 0.1);
+  border-color: rgba(140, 198, 63, 0.3);
+  color: #8CC63F;
+  transform: translateX(-2px);
+}
+
+.back-button svg {
+  transition: transform 0.2s;
+  color: #8CC63F;
+}
+
+.back-button:hover svg {
+  transform: translateX(-3px);
+}
+
 .breadcrumbs {
   display: flex;
   align-items: center;
@@ -579,8 +614,8 @@
 
 /* Live Auction Styles */
 .live-auction-page {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .live-auction-header {
@@ -590,14 +625,14 @@
 .live-auction-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   margin: 0 0 0.75rem 0;
   letter-spacing: -0.5px;
 }
 
 .live-auction-description {
   font-size: 1rem;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
   line-height: 1.6;
 }
@@ -684,14 +719,15 @@
 
 .live-timer-section {
   padding: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   text-align: center;
 }
 
 .timer-label {
   font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -715,7 +751,7 @@
 .timer-value {
   font-size: 2rem;
   font-weight: 700;
-  color: #000000;
+  color: #8CC63F;
   font-family: 'Courier New', monospace;
   line-height: 1;
 }
@@ -726,7 +762,7 @@
 
 .timer-label-small {
   font-size: 0.625rem;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -734,7 +770,7 @@
 .timer-separator {
   font-size: 2rem;
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.3);
   margin: 0 0.25rem;
 }
 
@@ -748,7 +784,7 @@
 
 .current-bid-label {
   font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -759,7 +795,7 @@
 .current-bid-amount {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 1rem;
   line-height: 1;
 }
@@ -772,13 +808,13 @@
 
 .highest-bidder-label {
   font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .highest-bidder-name {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 .quick-bid-button {
@@ -808,26 +844,28 @@
 .custom-bid-input {
   flex: 1;
   padding: 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   font-size: 0.875rem;
-  color: #000000;
+  color: #ffffff;
 }
 
 .custom-bid-input::placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .custom-bid-input:focus {
   outline: none;
   border-color: #8CC63F;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .custom-bid-button {
   padding: 0.75rem 1.5rem;
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #000000;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -837,7 +875,8 @@
 }
 
 .custom-bid-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #8CC63F;
 }
 
 .bidder-confirmation {
@@ -845,7 +884,7 @@
   background-color: rgba(140, 198, 63, 0.15);
   border: 1px solid rgba(140, 198, 63, 0.3);
   border-radius: 6px;
-  color: #000000;
+  color: #8CC63F;
   font-size: 0.875rem;
   text-align: center;
   font-weight: 500;
@@ -861,15 +900,15 @@
 .bidding-feed-panel,
 .active-bidders-panel {
   padding: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
 }
 
 .panel-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
   margin: 0 0 1rem 0;
 }
 
@@ -886,7 +925,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .bidding-feed-item:last-child {
@@ -895,13 +934,13 @@
 
 .bidder-name {
   font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .bid-amount {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 .active-bidders-list {
@@ -916,11 +955,11 @@
   gap: 0.5rem;
   padding: 0.5rem 0;
   font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .active-bidder-item svg {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   flex-shrink: 0;
 }
 

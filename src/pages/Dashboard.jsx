@@ -167,7 +167,6 @@ const Dashboard = () => {
             <Link to="/buyer/auctions" className="nav-link">Auctions</Link>
             <Link to="/my-bids" className="nav-link">My Bids</Link>
             <Link to="/won-items" className="nav-link">Won Items</Link>
-            <Link to="/help" className="nav-link">Help</Link>
           </nav>
 
           <div className="dashboard-header-right">
@@ -238,7 +237,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="summary-card highlight">
+            <Link to="/wallet" className="summary-card highlight" style={{ textDecoration: 'none', cursor: 'pointer' }}>
               <div className="card-background-gradient" style={{ background: 'linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 193, 7, 0.1) 100%)' }}></div>
               <div className="card-icon" style={{ backgroundColor: 'rgba(255, 193, 7, 0.25)', borderColor: 'rgba(255, 193, 7, 0.5)' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -250,7 +249,7 @@ const Dashboard = () => {
                 <span className="card-value currency">{formatCurrency(user.walletBalance)}</span>
                 <span className="card-sublabel">Available for bidding</span>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Active Bids Section */}

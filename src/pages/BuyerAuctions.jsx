@@ -143,7 +143,6 @@ const BuyerAuctions = () => {
             <Link to="/buyer/auctions" className="nav-link active">Auctions</Link>
             <Link to="/my-bids" className="nav-link">My Bids</Link>
             <Link to="/won-items" className="nav-link">Won Items</Link>
-            <Link to="/help" className="nav-link">Help</Link>
           </nav>
 
           <div className="buyer-auctions-header-right">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Toast from '../components/Toast'
 import './Auctions.css'
 
 const Auctions = () => {
@@ -9,6 +10,14 @@ const Auctions = () => {
   const [priceRange, setPriceRange] = useState({ min: '', max: '' })
   const [sortBy, setSortBy] = useState('newest')
   const [currentPage, setCurrentPage] = useState(1)
+  const [showToast, setShowToast] = useState(false)
+
+  // Check if user is logged in (guest mode)
+  const isGuest = () => {
+    // Check localStorage for auth token or user data
+    // For now, we'll check if user has visited dashboard/profile pages
+    return !localStorage.getItem('isAuthenticated')
+  }
 
   const auctions = [
     {
@@ -88,8 +97,8 @@ const Auctions = () => {
   const categories = ['Vehicles', 'Real Estate', 'Fine Art', 'Jewelry', 'Industrial Machinery', 'Collectibles']
   const statusOptions = ['Live', 'Upcoming', 'Ended']
   const sortOptions = [
-    { value: 'newest', label: 'Newest First' },
-    { value: 'oldest', label: 'Oldest First' },
+    { value: 'newest', label: 'Newest' },
+    { value: 'oldest', label: 'Oldest' },
     { value: 'ending', label: 'Ending Soon' },
     { value: 'price-low', label: 'Price: Low to High' },
     { value: 'price-high', label: 'Price: High to Low' }
@@ -118,12 +127,27 @@ const Auctions = () => {
     setSortBy('newest')
   }
 
+  const handleAuctionClick = (auction) => {
+    // Check if it's a LIVE auction and user is guest
+    if (auction.status === 'LIVE' && isGuest()) {
+      setShowToast(true)
+      return
+    }
+    // Navigate to auction details
+    navigate(`/auction/${auction.id}`)
+  }
+
   return (
     <div className="auctions-page">
+      <Toast 
+        message="Login required" 
+        isVisible={showToast} 
+        onClose={() => setShowToast(false)} 
+      />
       <div className="auctions-container">
         <aside className="filters-sidebar">
           <div className="filters-header">
-            <h2 className="filters-title">Filters</h2>
+            <h2 className="filters-title">Filter By</h2>
             <button className="clear-all-btn" onClick={handleClearFilters}>Clear All</button>
           </div>
           
@@ -209,7 +233,7 @@ const Auctions = () => {
           <div className="auctions-header">
             <div className="header-left">
               <h1 className="auctions-page-title">Live & Upcoming Auctions</h1>
-              <span className="results-count">{auctions.length} auctions found</span>
+              <span className="results-count">{auctions.length} Results</span>
             </div>
           </div>
 
@@ -227,13 +251,13 @@ const Auctions = () => {
                   <h3 className="auction-card-title">{auction.title}</h3>
                   <div className="auction-timer">
                     <span className="timer-label">
-                      {auction.timerType === 'ends' ? 'Ends in' : 'Starts in'}
+                      AUCTION {auction.timerType === 'ends' ? 'ENDS' : 'STARTS'} IN
                     </span>
                     <span className="timer-value">{auction.timer}</span>
                   </div>
                   <button 
                     className="view-auction-btn"
-                    onClick={() => navigate(`/auction/${auction.id}`)}
+                    onClick={() => handleAuctionClick(auction)}
                   >
                     View Auction
                   </button>
