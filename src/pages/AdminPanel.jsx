@@ -13,11 +13,11 @@ const sampleData = [
 ];
 
 function AdminPanel() {
-
   const [search, setSearch] = useState("")
   const [category, setCategory] = useState("All")
   const [status, setStatus] = useState("All") 
   const [currentPage, setCurrentPage] = useState(1)
+  const [selectedRow, setSelectedRow] = useState(null)
   const itemsPerPage = 5 
 
   const sortedData = useMemo(() => {
@@ -36,7 +36,6 @@ function AdminPanel() {
   }, [search, category, status, sortedData])
 
   const totalPages = Math.ceil(filtered.length / itemsPerPage)
-
   const paginatedData = filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
 
   const ActionButton = ({ status }) => {
@@ -104,8 +103,14 @@ function AdminPanel() {
 
             <tbody>
               {paginatedData.map((item, index) => (
-                <tr key={item.id}>
-                  <td>{(currentPage - 1) * itemsPerPage + index + 1}</td> 
+                <tr
+                  key={item.id}
+                  className={selectedRow === item.id ? "row-selected" : ""}
+                  onClick={() => setSelectedRow(item.id)}
+                >
+                  <td className={selectedRow === item.id ? "bold-number" : ""}>
+                    {(currentPage - 1) * itemsPerPage + index + 1}
+                  </td>
                   <td>{item.id}</td>
                   <td>{item.category}</td>
                   <td>{item.seller}</td>
@@ -151,7 +156,6 @@ function AdminPanel() {
 
           <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)} className="btn border rounded px-3">Next</button>
         </div>
-
       </div>
     </>
   )
