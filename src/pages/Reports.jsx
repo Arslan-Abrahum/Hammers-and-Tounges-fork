@@ -82,12 +82,12 @@ function Report() {
           <thead>
             <tr>
               <th>#</th>
-              <th>Asset ID</th>
-              <th>Asset Name</th>
+              <th>Item ID</th>
+              <th>Item Category</th>
               <th>Date & Time</th>
-              <th>Officer</th>
+              <th>Auction Officer</th>
               <th>Status</th>
-              <th>Decision Notes</th>
+              <th>Decision Comments</th>
               <th>Actions</th>
             </tr>
           </thead>
