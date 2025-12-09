@@ -34,6 +34,9 @@ import "react-toastify/dist/ReactToastify.css";
 import InspectionAdmin from "./pages/InspectionAdmin";
 import AuctionAdminPanel from './pages/AuctionAdminPanel'
 import AdminPublishNew from './pages/AdminPublishNew'
+import AuctionControlPanel from './pages/AuctionControlPanel'
+import LiveAuctionsTab from './pages/LiveAuctionsTab'
+import AdminAuctionResults from './pages/AdminAuctionResults'
 
 function App() {
   return (
@@ -64,6 +67,26 @@ function App() {
             <>
               <AdminHeader />
               <Reports/>
+            </>
+          } />
+           <Route path="/livetab" element={
+            <>
+              <AdminHeader />
+              <LiveAuctionsTab/>
+            </>
+            
+          } />
+           <Route path="/AdminAuctionResults" element={
+            <>
+              <AdminHeader />
+              <AdminAuctionResults/>
+            </>
+            
+          } />
+           <Route path="/controlpanel" element={
+            <>
+              <AdminHeader />
+              <AuctionControlPanel/>
             </>
           } />
            <Route path="/auctiontab" element={

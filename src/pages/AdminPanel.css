@@ -197,14 +197,16 @@ body {
 .row-selected { background-color: #e0f7fa; transition: 0.2s; }
 .bold-number { font-weight: bold; }
 
-.pagination-bar {
+.pagination-bar1 {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: 40px;
+  margin-right: 1%;
+  
 }
 
-.pagination-bar button {
+.pagination-bar1 button {
   height: 38px;
   padding: 0 14px;
   border-radius: 6px;
@@ -214,12 +216,12 @@ body {
   font-size: 14px;
 }
 
-.pagination-bar .active-page {
+.pagination-bar1 .active-page {
   background: #2563eb;
   border: none;
 }
 
-.pagination-bar button:hover:not([disabled]) {
+.pagination-bar1 button:hover:not([disabled]) {
   opacity: 0.8;
   transform: translateY(-1px);
 }

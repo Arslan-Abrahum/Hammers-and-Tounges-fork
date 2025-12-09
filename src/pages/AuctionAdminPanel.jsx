@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./AuctionAdminPanel.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+
 export default function AuctionPage() {
+
+  const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,6 +36,7 @@ export default function AuctionPage() {
   return (
     <div className="container-fluid p-4 min-vh-100 bg-black text-white">
 
+      {/* Summary Cards */}
       <div className="row g-3 mb-4 mt-4">
         <div className="col-md-4">
           <div className="card p-3 shadow dark-card">
@@ -59,6 +63,7 @@ export default function AuctionPage() {
         </div>
       </div>
 
+      {/* Table Card */}
       <div className="card p-3 dark-card mt-3">
 
         <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 mt-3">
@@ -66,8 +71,8 @@ export default function AuctionPage() {
 
           <div className="d-flex flex-wrap gap-2 align-items-center">
             <Link to="/publishnew">
-    <button className="createBtn">+ Create New Auction</button>
-</Link>
+              <button className="createBtn">+ Create New Auction</button>
+            </Link>
 
             <input
               type="text"
@@ -80,18 +85,18 @@ export default function AuctionPage() {
               }}
             />
 
-           <div className="btn-group ms-2">
-  <button className="btn custom-filter-btn">All</button>
-  <button className="btn custom-filter-btn">Live</button>
-  <button className="btn custom-filter-btn">Upcoming</button>
-  <button className="btn custom-filter-btn">Ended</button>
-  <button className="btn custom-filter-btn">Draft</button>
-</div>
+            <div className="btn-group ms-2">
+              <button className="btn custom-filter-btn">All</button>
+              <button className="btn custom-filter-btn">Live</button>
+              <button className="btn custom-filter-btn">Upcoming</button>
+              <button className="btn custom-filter-btn">Ended</button>
+              <button className="btn custom-filter-btn">Draft</button>
+            </div>
           </div>
         </div>
 
-        <div className="table-responsive">
-          <table className="table table-dark table-hover align-middle">
+        <div className="table-responsive1">
+          <table className="table table-dark  align-middle">
             <thead>
               <tr>
                 <th>Auction Name / ID</th>
@@ -106,11 +111,16 @@ export default function AuctionPage() {
 
             <tbody>
               {paginatedData.map((item, index) => (
-                <tr key={index}>
+                <tr
+                  key={index}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/controlpanel")}
+                >
                   <td>
                     <strong>{item.name}</strong><br />
                     <small className="text-secondary">{item.id}</small>
                   </td>
+
                   <td>
                     <span className={`badge 
                       ${item.status === "Live" ? "bg-success" :
@@ -121,15 +131,27 @@ export default function AuctionPage() {
                       {item.status}
                     </span>
                   </td>
+
                   <td>{item.start}</td>
                   <td>{item.end}</td>
                   <td>{item.lots}</td>
                   <td>{item.value}</td>
 
                   <td>
-                    <span style={{cursor:"pointer"}} onClick={() => alert("View clicked")}>👁</span>{" "}
-                    <span style={{cursor:"pointer"}} onClick={() => alert("Edit clicked")}>✏️</span>{" "}
-                    <span style={{cursor:"pointer"}} onClick={() => alert("More clicked")}>⋮</span>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) => { e.stopPropagation(); alert("View clicked"); }}
+                    >👁</span>{" "}
+
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) => { e.stopPropagation(); alert("Edit clicked"); }}
+                    >✏️</span>{" "}
+
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) => { e.stopPropagation(); alert("More clicked"); }}
+                    >⋮</span>
                   </td>
 
                 </tr>
@@ -138,45 +160,46 @@ export default function AuctionPage() {
           </table>
         </div>
 
-       <div className="d-flex justify-content-between align-items-center mt-3">
-  <small className="text-secondary">
-    Showing {startIndex + 1} to {Math.min(startIndex + itemsPerPage, filteredData.length)} of {filteredData.length}
-  </small>
+        {/* Pagination */}
+        <div className="d-flex justify-content-between align-items-center mt-3">
+          <small className="text-secondary">
+            Showing {startIndex + 1} to {Math.min(startIndex + itemsPerPage, filteredData.length)} of {filteredData.length}
+          </small>
 
-  <div className="pagination-bar d-flex gap-2 align-items-center">
+          <div className="pagination-bar d-flex gap-2 align-items-center">
 
-    <button
-      disabled={currentPage === 1}
-      onClick={() => setCurrentPage(p => p - 1)}
-      className="btn border rounded px-3"
-    >
-      Prev
-    </button>
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(p => p - 1)}
+              className="btn border rounded px-3"
+            >
+              Prev
+            </button>
 
-    {[...Array(totalPages)].map((_, i) => (
-      i < 3 && (
-        <button
-          key={i}
-          onClick={() => setCurrentPage(i + 1)}
-          className={`btn border rounded px-3 ${currentPage === i + 1 ? "bg-black text-white border-0" : ""}`}
-        >
-          {i + 1}
-        </button>
-      )
-    ))}
+            {[...Array(totalPages)].map((_, i) => (
+              i < 3 && (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`btn border rounded px-3 ${currentPage === i + 1 ? "bg-black text-white border-0" : ""}`}
+                >
+                  {i + 1}
+                </button>
+              )
+            ))}
 
-    {totalPages > 3 && <span className="px-2 text-black">...</span>}
+            {totalPages > 3 && <span className="px-2 text-black">...</span>}
 
-    <button
-      disabled={currentPage === totalPages}
-      onClick={() => setCurrentPage(p => p + 1)}
-      className="btn border rounded px-3"
-    >
-      Next
-    </button>
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(p => p + 1)}
+              className="btn border rounded px-3"
+            >
+              Next
+            </button>
 
-  </div>
-</div>
+          </div>
+        </div>
 
       </div>
     </div>

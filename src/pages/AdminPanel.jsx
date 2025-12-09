@@ -154,7 +154,7 @@ function AdminPanel() {
           </table>
         </div>
 
-        <div className="pagination-bar">
+        <div className="pagination-bar1">
           <button disabled={currentPage === 1} onClick={() => setCurrentPage(p => p - 1)} className="btn border rounded px-3">Prev</button>
 
           {[...Array(totalPages)].map((_, i) => (

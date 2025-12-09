@@ -15,17 +15,24 @@ body {
 
 .table-section {
   margin-top: 20px;
+  background-color: #000;
+
+
 }
 
 .search-input {
   width: 220px;
   background: #111 !important;
   color: #fff !important;
+  
 }
 
 .table-dark th,
 .table-dark td {
-  border-color: #222 !important;
+  border-color: #010101 !important;
+    background-color: #000;
+
+
 }
 .pagination-bar {
   display: flex;
@@ -43,6 +50,7 @@ margin-right: 40%;
   border: 1px solid #333;
   color: #fff;
   font-size: 14px;
+  
 }
 
 .pagination-bar .active-page {
