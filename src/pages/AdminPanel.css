@@ -48,12 +48,13 @@ body {
 }
 
 .search-input, .filter-select {
-  padding: 10px 12px;
+  padding: 10px 5px;
   border: 1px solid #333;
   border-radius: 8px;
   font-size: 16px;
   color: white;
   background-color: #0a0a0a;
+  text-align: left;
 }
 
 .search-input {

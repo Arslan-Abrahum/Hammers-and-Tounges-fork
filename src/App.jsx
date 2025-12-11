@@ -37,6 +37,7 @@ import AdminPublishNew from './pages/AdminPublishNew'
 import AuctionControlPanel from './pages/AuctionControlPanel'
 import LiveAuctionsTab from './pages/LiveAuctionsTab'
 import AdminAuctionResults from './pages/AdminAuctionResults'
+import Finance from './pages/Finance'
 
 function App() {
   return (
@@ -73,6 +74,13 @@ function App() {
             <>
               <AdminHeader />
               <LiveAuctionsTab/>
+            </>
+            
+          } />
+           <Route path="/finance" element={
+            <>
+              <AdminHeader />
+              <Finance/>
             </>
             
           } />

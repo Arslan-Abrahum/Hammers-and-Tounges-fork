@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import AdminHeader from '../components/AdminHeader';
 import "./AdminPanel.css";
 import { toast } from "react-toastify";
 
