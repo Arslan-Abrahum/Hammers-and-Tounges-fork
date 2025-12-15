@@ -34,6 +34,8 @@ function AdminHeader() {
             <Link to="/auctiontab" className={`nav-link ${location.pathname.includes("auctiontab") ? "active" : ""}`}>Auction</Link>
             <Link to="/livetab" className={`nav-link ${location.pathname.includes("livetab") ? "active" : ""}`}>Live Auctions</Link>
             <Link to="/finance" className={`nav-link ${location.pathname.includes("finance") ? "active" : ""}`}>Finance</Link>
+            <Link to="/admin/category-management" className={`nav-link ${location.pathname.includes("admin/category-management") ? "active" : ""}`}>Field Management</Link>
+            <Link to="/admin/user-management" className={`nav-link ${location.pathname.includes("admin/user-management") ? "active" : ""}`}>User Management</Link>
           </nav>
         </div>
 

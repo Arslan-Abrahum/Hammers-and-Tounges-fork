@@ -40,6 +40,9 @@ import AdminAuctionResults from './pages/AdminAuctionResults'
 import Finance from './pages/Finance'
 import ManualPaymentEntry from './components/ManualPayment'
 import ManualPaymentAuthorization from './pages/ManualPaymentAuthorization'
+import PaymentVerification from './pages/paymentVerification/PaymentVerification'
+import CategoryManagement from './pages/categoryManagement/CategoryManagement'
+import UserManagement from './pages/userManagement/UserManagement'
 
 function App() {
   return (
@@ -52,11 +55,11 @@ function App() {
           <Route path="/kyc-verification" element={<KYCVerification />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
-          <Route path='/seller/auction-listings' element={<SellerAuctionListings />}/>
-          <Route path='/seller/create-product' element={<CreateProduct/>}/>
-          <Route path='/seller/auctions' element={<SellerAuctions/>}/>
-          <Route path='/seller/listing/:id' element={<SellerListingDetails/>}/>
-          <Route path='/seller/analytics' element={<SellerAnalytics/>}/>
+          <Route path='/seller/auction-listings' element={<SellerAuctionListings />} />
+          <Route path='/seller/create-product' element={<CreateProduct />} />
+          <Route path='/seller/auctions' element={<SellerAuctions />} />
+          <Route path='/seller/listing/:id' element={<SellerListingDetails />} />
+          <Route path='/seller/analytics' element={<SellerAnalytics />} />
           <Route path="/buyer/auctions" element={<BuyerAuctions />} />
           <Route path="/buyer/auction/:id" element={<BuyerAuctionDetails />} />
           <Route path="/my-bids" element={<MyBids />} />
@@ -65,58 +68,65 @@ function App() {
           <Route path="/invoice/:invoiceNumber" element={<Invoices />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/profile" element={<Profile />} />
-          
+
           <Route path="/reports" element={
             <>
               <AdminHeader />
-              <Reports/>
+              <Reports />
             </>
           } />
-           <Route path="/livetab" element={
+          <Route path="/livetab" element={
             <>
               <AdminHeader />
-              <LiveAuctionsTab/>
+              <LiveAuctionsTab />
             </>
-            
+
           } />
-           <Route path="/finance" element={
+          <Route path="/finance" element={
             <>
               <AdminHeader />
-              <Finance/>
+              <Finance />
             </>
-            
+
           } />
-           <Route path="/finance/manual-payments" element={
+          <Route path="/finance/manual-payments" element={
             <>
               <AdminHeader />
-              <ManualPaymentEntry/>
+              <ManualPaymentEntry />
             </>
-            
+
           } />
-           <Route path="/finance/manual/payments-authorization" element={
+          <Route path="/finance/manual/payments-authorization" element={
             <>
               <AdminHeader />
-              <ManualPaymentAuthorization/>
+              <ManualPaymentAuthorization />
             </>
-            
+
           } />
-           <Route path="/AdminAuctionResults" element={
+          <Route path="/finance/manual/payments-verification" element={
             <>
               <AdminHeader />
-              <AdminAuctionResults/>
+              <PaymentVerification />
             </>
-            
+
           } />
-           <Route path="/controlpanel" element={
+          <Route path="/AdminAuctionResults" element={
             <>
               <AdminHeader />
-              <AuctionControlPanel/>
+              <AdminAuctionResults />
+            </>
+
+          } />
+          <Route path="/controlpanel" element={
+            <>
+              <AdminHeader />
+              <AuctionControlPanel />
             </>
           } />
-           <Route path="/auctiontab" element={
+          <Route path="/auctiontab" element={
             <>
               <AdminHeader />
-              <AuctionAdminPanel/>
+              <AuctionAdminPanel />
             </>
           } />
 
@@ -126,7 +136,7 @@ function App() {
               <AdminPanel />
             </>
           } />
- <Route path="/publishnew" element={
+          <Route path="/publishnew" element={
             <>
               <AdminHeader />
               <AdminPublishNew />
@@ -134,8 +144,20 @@ function App() {
           } />
           <Route path="/inspection" element={
             <>
-            <AdminHeader/>
+              <AdminHeader />
               <InspectionAdmin />
+            </>
+          } />
+          <Route path="/admin/category-management" element={
+            <>
+              <AdminHeader />
+              <CategoryManagement />
+            </>
+          } />
+          <Route path="/admin/user-management" element={
+            <>
+              <AdminHeader />
+              <UserManagement />
             </>
           } />
 
@@ -175,7 +197,7 @@ function App() {
             </>
           } />
         </Routes>
-        <ToastContainer /> 
+        <ToastContainer />
       </div>
     </Router>
   )
