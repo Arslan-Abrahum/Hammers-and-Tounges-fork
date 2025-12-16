@@ -62,7 +62,7 @@ function AdminHeader() {
 
         <div className={`header-center ${mobileMenuOpen ? "open" : ""}`}>
           <nav className="nav">
-            <Link to="/admin-panel/" onClick={() => setMobileMenuOpen(false)} className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>Dashboard</Link>
+            <Link to="/admin-panel" onClick={() => setMobileMenuOpen(false)} className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>Dashboard</Link>
             <Link to="/reports" onClick={() => setMobileMenuOpen(false)} className={`nav-link ${location.pathname.includes("reports") ? "active" : ""}`}>Reports</Link>
             <Link to="/auctiontab" onClick={() => setMobileMenuOpen(false)} className={`nav-link ${location.pathname.includes("auctiontab") ? "active" : ""}`}>Auction</Link>
             <Link to="/livetab" onClick={() => setMobileMenuOpen(false)} className={`nav-link ${location.pathname.includes("livetab") ? "active" : ""}`}>Live Auctions</Link>

@@ -109,14 +109,12 @@ function App() {
               <AdminHeader />
               <ManualPaymentAuthorization />
             </>
-
           } />
           <Route path="/finance/manual/payments-verification" element={
             <>
               <AdminHeader />
               <PaymentVerification />
             </>
-
           } />
           <Route path="/AdminAuctionResults" element={
             <>
