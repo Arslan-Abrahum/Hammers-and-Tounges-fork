@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./KYCVerification.css";
+import "./KycVerification.css";
 
-const KYCVerification = () => {
+const KycVerification = () => {
   const [comparison, setComparison] = useState(false);
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
@@ -157,4 +157,4 @@ const KYCVerification = () => {
   );
 };
 
-export default KYCVerification;
+export default KycVerification;
